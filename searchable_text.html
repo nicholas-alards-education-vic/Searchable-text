@@ -84,7 +84,7 @@
 	function setValue(value) {
 		const segmenter = new Intl.Segmenter([], { granularity: 'word' });
 		const segmentedText = segmenter.segment(value);
-		const words = [...segmentedText].filter(s => s.isWordLike).map(s => s.segment);
+		const words = [...segmentedText].filter(s => s.isWordLike).map(s => s.segment.toLowerCase());
 		console.log(words);
 		CustomElement.setValue(JSON.stringify(words));
 	}
